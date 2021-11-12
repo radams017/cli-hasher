@@ -1,10 +1,11 @@
 const inquirer = require("inquirer");
 const crypto = require("crypto")
 
+// launches app
 function init() {
     console.log('\nWelcome To Hasher!\n');
     collectData();
-}
+};
 
 // collects data to be hashed
 function collectData() {
@@ -16,8 +17,9 @@ function collectData() {
     }]).then(data => {
         hashData(data.value)
     })
-}
+};
 
+// hashes data
 function hashData(data) {
     const secret = 'kickflip';
     const sha1 = crypto.createHash('sha1', secret).update(data).digest('hex');
@@ -27,6 +29,6 @@ function hashData(data) {
     console.log('SHA1:', sha1)
     console.log('SHA2:', sha2)
     console.log('MD5:', md5)
-}
+};
 
 init();
