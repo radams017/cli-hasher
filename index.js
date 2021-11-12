@@ -10,7 +10,7 @@ function init() {
 function collectData() {
 
     inquirer.prompt([{
-        type: 'input',
+        type: 'password',
         message: 'Input Value To Be Hashed: ',
         name: 'value',
     }]).then(data => {
@@ -24,7 +24,9 @@ function hashData(data) {
     const sha2 = crypto.createHash('sha256', secret).update(data).digest('hex');
     const md5 = crypto.createHash('md5', secret).update(data).digest('hex');
 
-    console.log(sha1, sha2, md5)
+    console.log('SHA1:', sha1)
+    console.log('SHA2:', sha2)
+    console.log('MD5:', md5)
 }
 
 init();
