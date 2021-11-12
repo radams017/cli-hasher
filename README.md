@@ -6,5 +6,5 @@
 
 ## How To Use
 - Clone repo. 
-- Run ```npm i`` to download the required packages. 
+- Run ```npm i``` to download the required packages. 
 - Run ```node index.js```
