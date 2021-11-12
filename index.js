@@ -1,14 +1,30 @@
 const inquirer = require("inquirer");
+const crypto = require("crypto")
 
 function init() {
-    console.log('Welcome To Hasher. This application will output on of, if not all three, of the following hashes: MD5, SHA1, SHA2');
-    hashData();
+    console.log('\nWelcome To Hasher!\n');
+    collectData();
 }
 
-function hashData() {
+// collects data to be hashed
+function collectData() {
 
     inquirer.prompt([{
-
-    }])
-
+        type: 'input',
+        message: 'Input Value To Be Hashed: ',
+        name: 'value',
+    }]).then(data => {
+        hashData(data.value)
+    })
 }
+
+function hashData(data) {
+    const secret = 'kickflip';
+    const sha1 = crypto.createHash('sha1', secret).update(data).digest('hex');
+    const sha2 = crypto.createHash('sha256', secret).update(data).digest('hex');
+    const md5 = crypto.createHash('md5', secret).update(data).digest('hex');
+
+    console.log(sha1, sha2, md5)
+}
+
+init();
