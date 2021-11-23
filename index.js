@@ -11,7 +11,7 @@ function init() {
 function collectData() {
 
     inquirer.prompt([{
-        type: 'password',
+        type: 'input',
         message: 'Input Value To Be Hashed: ',
         name: 'value',
     }]).then(data => {
