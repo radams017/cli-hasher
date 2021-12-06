@@ -21,10 +21,9 @@ function collectData() {
 
 // hashes data
 function hashData(data) {
-    const secret = 'kickflip';
-    const sha1 = crypto.createHash('sha1', secret).update(data).digest('hex');
-    const sha2 = crypto.createHash('sha256', secret).update(data).digest('hex');
-    const md5 = crypto.createHash('md5', secret).update(data).digest('hex');
+    const sha1 = crypto.createHash('sha1').update(data).digest('hex');
+    const sha2 = crypto.createHash('sha256').update(data).digest('hex');
+    const md5 = crypto.createHash('md5').update(data).digest('hex');
 
     console.log('SHA1:', sha1)
     console.log('SHA2:', sha2)
